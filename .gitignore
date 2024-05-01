@@ -1,0 +1,9 @@
+# Archivos que no se van a subir de: node.js
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Archivos que no se van a subir de: respaldo y temporales
+*.log
+*.bak
+*.tmp
