@@ -2,6 +2,7 @@ const express = require('express'); // Importar Express
 const router = express.Router(); // Crear un enrutador utilizando express.Router()
 const bcrypt = require('bcrypt'); // Importar bcrypt para encriptar contraseñas
 const jwt = require('jsonwebtoken'); // Importar jwt para la generación y verificación de tokens
+const pool = require('../conectarDB');
 
 // Middleware para verificar tokens de acceso
 const verifyToken = (req, res, next) => {
@@ -21,7 +22,7 @@ const verifyToken = (req, res, next) => {
 };
 
 // Ruta para registrar un nuevo usuario
-router.post('/register', async (req, res) => {
+router.post('/registro', async (req, res) => {
     try { // Manejar cualquier error
         const { nombre, apellidos, email, password, telefono, direccion, ciudad, pais } = req.body; // Obtener los datos del cuerpo de la solicitud
 
@@ -31,7 +32,7 @@ router.post('/register', async (req, res) => {
         }
 
         // Verificar si ya existe un usuario con el mismo correo electrónico
-        const existingUser = await req.db.query(`SELECT * FROM usuarios WHERE email = ?`, [email]);
+        const existingUser = await pool.query(`SELECT * FROM usuarios WHERE email = ?`, [email]);
         if (existingUser.length > 0) {
             return res.status(400).json({ message: 'Ya existe un usuario con este correo electrónico' });
         }
@@ -40,7 +41,7 @@ router.post('/register', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Insertar un nuevo usuario en la base de datos
-        await req.db.query(`INSERT INTO usuarios (nombre, apellidos, email, password, telefono, direccion, ciudad, pais) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`, [nombre, apellidos, email, hashedPassword, telefono, direccion, ciudad, pais]);
+        await pool.query(`INSERT INTO usuarios (nombre, apellidos, email, password, telefono, direccion, ciudad, pais) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`, [nombre, apellidos, email, hashedPassword, telefono, direccion, ciudad, pais]);
 
         res.status(201).json({ message: 'Usuario registrado correctamente' }); // Devolver un mensaje de éxito
     } catch (error) { // Manejar cualquier error interno del servidor
@@ -55,7 +56,7 @@ router.post('/login', async (req, res) => {
         const { email, password } = req.body; // Obtener los datos del cuerpo de la solicitud
 
         // Buscar el usuario por su correo electrónico
-        const user = await req.db.query(`SELECT * FROM usuarios WHERE email = ?`, [email]);
+        const user = await pool.query(`SELECT * FROM usuarios WHERE email = ?`, [email]);
 
         if (user.length === 0) { // Si no existe el usuario
             return res.status(401).json({ message: 'Credenciales inválidas' }); // Devolver un error de no autorizado
@@ -80,7 +81,7 @@ router.post('/login', async (req, res) => {
 // Ruta para obtener todos los usuarios
 router.get('/', async (req, res) => {
     try { // Manejar cualquier error
-        const users = await req.db.query(`SELECT * FROM usuarios`); // Obtener todos los usuarios de la base de datos
+        const users = await pool.query(`SELECT * FROM usuarios`); // Obtener todos los usuarios de la base de datos
 
         res.json(users); // Devolver los usuarios
     } catch (error) { // Manejar cualquier error interno del servidor
@@ -89,16 +90,11 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Ruta protegida que requiere autenticación
-router.get('/protected', verifyToken, (req, res) => {
-    res.json({ message: 'Ruta protegida, solo accesible con un token de acceso válido' }); // Devolver un mensaje de éxito
-});
-
 // Ruta para obtener un usuario por ID
 router.get('/:id', async (req, res) => {
     try { // Manejar cualquier error
         const userId = req.params.id; // Obtener el ID de usuario de los parámetros de la URL
-        const user = await req.db.query(`SELECT * FROM usuarios WHERE id = ?`, [userId]); // Buscar un usuario por su ID en la base de datos
+        const user = await pool.query(`SELECT * FROM usuarios WHERE id = ?`, [userId]); // Buscar un usuario por su ID en la base de datos
 
         if (user.length === 0) { // Si no se encuentra el usuario
             return res.status(404).json({ message: 'Usuario no encontrado' }); // Devolver un error de no encontrado
@@ -133,7 +129,7 @@ router.put('/:id', verifyToken, async (req, res) => {
         };
 
         // Actualizar el usuario en la base de datos
-        await req.db.query(`UPDATE usuarios SET ? WHERE id = ?`, [updatedUser, userId]);
+        await pool.query(`UPDATE usuarios SET ? WHERE id = ?`, [updatedUser, userId]);
 
         res.json({ message: 'Usuario actualizado correctamente' }); // Devolver un mensaje de éxito
     } catch (error) { // Manejar cualquier error interno del servidor
@@ -148,7 +144,7 @@ router.delete('/:id', verifyToken, async (req, res) => {
         const userId = req.params.id; // Obtener el ID de usuario de los parámetros de la URL
 
         // Eliminar el usuario de la base de datos
-        await req.db.query(`DELETE FROM usuarios WHERE id = ?`, [userId]);
+        await pool.query(`DELETE FROM usuarios WHERE id = ?`, [userId]);
 
         res.json({ message: 'Usuario eliminado correctamente' }); // Devolver un mensaje de éxito
     } catch (error) { // Manejar cualquier error interno del servidor
