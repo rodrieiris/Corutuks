@@ -1,69 +1,44 @@
-// Importar Express
+// Importamos express para crear el servidor
 const express = require('express');
 
-// Importar el middleware para habilitar CORS (Cross-Origin Resource Sharing)
+// Importamos bodyParser para analizar los cuerpos de las solicitudes HTTP
+const bodyParser = require('body-parser');
+
+// Importamos cors para permitir solicitudes de diferentes dominios al servidor
 const cors = require('cors');
 
-// Importar mariadb para conectarse a la base de datos MariaDB
-const mariadb = require('mariadb');
+// Importamos las rutas de la aplicación
+const routes = require('./routes/rutasBackend');
 
-// Importar las rutas definidas para los usuarios y las reservas de viajes
-const usersRoutes = require('./routes/users');
-const reservasRoutes = require('./routes/reservas');
+// Importamos la función para conectar con la base de datos
+const { pool, conectarDB } = require('./conectarDB');
 
-// Cargar las variables de entorno desde el archivo .env
-require('dotenv').config();
-
-// Puerto en el que se ejecutará el servidor
-const PORT = process.env.PORT || 5000;
-
-// Datos de conexión a la base de datos MariaDB
-const { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE } = process.env;
-
-// Crear una instancia de la aplicación Express
+// Creamos una instancia de express
 const app = express();
 
-// Habilitar CORS en la aplicación Express
-app.use(cors());
-
-// Habilitar el middleware para el análisis de datos JSON
+// Middleware para parsear el cuerpo de las solicitudes entrantes como JSON
 app.use(express.json());
 
-// Función para conectar con la base de datos MariaDB
-async function conectarDB() {
-    try {
-        // Crear una pool de conexiones a la base de datos MariaDB
-        const pool = mariadb.createPool({
-            host: DB_HOST,
-            user: DB_USER,
-            password: DB_PASSWORD,
-            database: DB_DATABASE
-        });
+// Configurar cors para permitir solicitudes de diferentes dominios
+app.use(cors());
 
-        // Verificar la conexión con la bbdd
-        const connection = await pool.getConnection();
-        console.log('Conexión a la base de datos establecida');
+// Usar las rutas definidas en el archivo routes/rutasBackend.js
+app.use('/api', routes);
 
-        // Middleware para agregar la conexión a la base de datos a cada solicitud
-        app.use((req, res, next) => {
-            req.db = connection;
-            next();
-        });
+// Obtener el puerto del entorno o usar el puerto 5000 por defecto
+const PORT = process.env.PORT || 5000;
 
-        // Utilizar las nuevas rutas de usuarios y reservas
-        //app.use('/api/users', usersRoutes);
-        //app.use('/api/reservas', reservasRoutes);
-        app.use('/users', usersRoutes);
-        app.use('/reservas', reservasRoutes);
-
-        // Iniciar el servidor Express
-        app.listen(PORT, () => console.log(`Servidor en ejecución en http://localhost:${PORT}`));
-    } catch (error) {
-        // Manejar errores de conexión a la base de datos
+// Función para conectar con la base de datos y manejar reconexiones
+const conectarConBaseDeDatosConReintentos = () => {
+    conectarDB().catch((error) => {
         console.error('Error al conectar con la base de datos:', error);
-        process.exit(1); // Salir del proceso con un código de error
-    }
-}
+        // Intentar reconectar después de un período de tiempo (por ejemplo, 5 segundos)
+        setTimeout(conectarConBaseDeDatosConReintentos, 5000); // Reintentar cada 5 segundos
+    });
+};
 
-// Llamar a la función para conectar con la base de datos
-conectarDB();
+// Llamamos a la función para conectar con la BBDD
+conectarConBaseDeDatosConReintentos();
+
+// Iniciar el servidor y escuchar en el puerto especificado
+app.listen(PORT, () => console.log(`Servidor corriendo en el puerto: ${PORT}`));
