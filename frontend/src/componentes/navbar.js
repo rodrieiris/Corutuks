@@ -1,17 +1,20 @@
 // src/componentes/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './CSS/navbar.css';
 
 function Navbar() {
     return (
         <nav>
-        <ul>
-            <li><Link to="/">Inicio</Link></li>
-            <li><Link to="/registro">Registro</Link></li>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/perfil">Perfil</Link></li>
-            <li><Link to="/reservas">Reservas</Link></li>
-        </ul>
+            <Link to="/">
+                <img src={'../../../corutuks.png'} alt="Imagen Corutuks" />
+            </Link>
+                
+            <ul>
+                <li><Link to="/reservas">Tours</Link></li>
+                <li><Link to="/sobreNosotros">Sobre Nosotros</Link></li>
+                <li><Link to="/contacto">Contacto</Link></li>
+            </ul>
         </nav>
     );
 }
