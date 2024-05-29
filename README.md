@@ -30,6 +30,13 @@ Actualmente estamos trabajando en el desarrollo de Corutuks para brindarte la me
 ## :computer: Acceso al Proyecto
 El proyecto está alojado en [GitHub](https://github.com/reirisp/Corutuks/), ¡no dudes en echarle un vistazo!
 
+SOLUCIONES POSIBLES ERRORES AL CLONAR EL PROYECTO
+- Error Backend: Si al clonar el repositorio no se te conecta a BBDD intenta esta posible [SOLUCIÓN](https://stackoverflow.com/questions/51008807/nodejs-mysql-client-does-not-support-authentication-protocol)
+
+- Error Frontend: Si te da este error 'ERR_OSSL_EVP_UNSUPPORTED' es un error común cuando se usa una versión más reciente de Node.js con una versión de react-scripts que no es compatible con ella. Esto se debe a cambios en las rutinas de cifrado de OpenSSL en Node.js.
+    - SOLUCIÓN: antes de iniciar el servidor debes poner en el CMD el comando 'set NODE_OPTIONS=--openssl-legacy-provider' y a continuación iniciamos el servidor de React con 'npm start'
+
+
 ## :hammer_and_wrench: Tecnologías Utilizadas
 :construction: **Proyecto en desarrollo** :construction:
 
