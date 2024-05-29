@@ -1,10 +1,23 @@
 import React from "react";
+import './CSS/inicio.css';
 
 function Inicio() {
     return (
-        <div>
-        <h1>Página de Inicio</h1>
-        <p>Este es un mensaje de prueba para la página de inicio.</p>
+        <div className="inicio">
+            <h1>Bienvenido a Corutuk</h1>
+            <p>Descubre nuestros increíbles tours y reserva tu aventura hoy mismo.</p>
+            <div className="container">
+                <div className="card">
+                    <h2>Tours</h2>
+                    <p>Explora nuestros tours disponibles.</p>
+                    <button className="button">Ver Más</button>
+                </div>
+                <div className="card">
+                    <h2>Reservas</h2>
+                    <p>Reserva tu tour favorito fácilmente.</p>
+                    <button className="button">Reservar Ahora</button>
+                </div>
+            </div>
         </div>
     );
 }
