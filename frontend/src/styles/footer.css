@@ -1,0 +1,30 @@
+footer {
+    background-color: #f8f9fa; /* Color de fondo suave */
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #e7e7e7;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 65px;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #007bff; /* Color de enlace */
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Subrayado al pasar el cursor */
+}
+
+.footer-copyright {
+    font-size: 0.9em;
+    color: #6c757d;
+}

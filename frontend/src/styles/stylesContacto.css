@@ -1,0 +1,84 @@
+.contacto-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.info-contacto, .mapa-contacto, .formulario-contacto {
+    width: 48%; /* Aproximadamente la mitad de la página */
+    margin-bottom: 30px;
+}
+
+.contact-details {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Primera columna para las etiquetas, segunda para la información */
+    gap: 10px 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-left: 5em;
+}
+
+.contact-row {
+    display: contents; /* Para mantener el diseño de grid sin agregar un contenedor extra */
+}
+
+.contact-label {
+    font-weight: bold;
+    text-align: right;
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.mapa-contacto iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-contacto form {
+    max-width: 400px;
+    width: 100%;
+}
+
+.formulario-contacto .form-group {
+    margin-bottom: 15px;
+}
+
+.formulario-contacto label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.formulario-contacto input[type="text"],
+.formulario-contacto input[type="email"],
+.formulario-contacto textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.formulario-contacto textarea {
+    height: 150px;
+}
+
+.formulario-contacto button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.formulario-contacto button:hover {
+    background-color: #0056b3;
+}

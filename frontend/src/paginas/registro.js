@@ -1,5 +1,5 @@
-// src/paginas/registro.js
 import React from 'react';
+import '../styles/styles.css';
 
 function Registro() {
     return (

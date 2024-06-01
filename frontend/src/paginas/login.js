@@ -1,5 +1,6 @@
 // src/paginas/login.js
 import React from 'react';
+import '../styles/styles.css';
 
 function Login() {
     return (
