@@ -1,13 +1,13 @@
-// src/componentes/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './CSS/navbar.css';
+import CorutuksLogo from '../img/corutuks.png';
+import '../styles/navbar.css';
 
 function Navbar() {
     return (
         <nav>
             <Link to="/">
-                <img src={'../../../corutuks.png'} alt="Imagen Corutuks" />
+                <img src={ CorutuksLogo } alt="Imagen Corutuks" className='CorutuksLogo'/>
             </Link>
                 
             <ul>

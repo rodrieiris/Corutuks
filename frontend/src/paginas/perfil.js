@@ -1,5 +1,6 @@
 // src/paginas/perfil.js
 import React from 'react';
+import '../styles/styles.css';
 
 function Perfil() {
     return (
