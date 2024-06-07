@@ -20,12 +20,9 @@
 ¡Bienvenido a Corutuks! Este proyecto es una aplicación web diseñada para simplificar y mejorar la experiencia de reserva de viajes en TukTuks. ¿Estás cansado de largas esperas en las estaciones de autobús o de lidiar con el tráfico pesado? ¡TukTuk es la solución! Con nuestra aplicación, puedes reservar un TukTuk con facilidad y comodidad, evitando las molestias de los transportes tradicionales.
 
 ## :construction: Estado del Proyecto
-:construction: **Proyecto en desarrollo** :construction:
+:white_check_mark: Proyecto finalizado, con mejoras continuamente :white_check_mark:
 
-Actualmente estamos trabajando en el desarrollo de Corutuks para brindarte la mejor experiencia posible. Estamos implementando nuevas características y mejorando la interfaz de usuario para garantizar un servicio excepcional.
-
-## :film_projector: Demostración de Funciones y Aplicaciones
-:construction: Próximamente... :construction:
+¡Corutuks está oficialmente terminado! Sin embargo, no nos detenemos aquí. Continuaremos añadiendo mejoras y optimizaciones para garantizar que sigas disfrutando de la mejor experiencia posible.
 
 ## :computer: Acceso al Proyecto
 El proyecto está alojado en [GitHub](https://github.com/reirisp/Corutuks/), ¡no dudes en echarle un vistazo!
@@ -38,9 +35,11 @@ SOLUCIONES POSIBLES ERRORES AL CLONAR EL PROYECTO
 
 
 ## :hammer_and_wrench: Tecnologías Utilizadas
-:construction: **Proyecto en desarrollo** :construction:
+Estas son las tecnologías utilizadas en el proyecto:
 
-:construction: Próximamente... :construction:
+    Node.js y Express.js para el desarrollo del backend
+    MariaDB como base de datos relacional
+    React, CSS y JavaScript para la interfaz de usuario
 
 ## :man_technologist: Personas Desarrolladoras del Proyecto
 ![Avatar](https://avatars.githubusercontent.com/u/145001101?s=400&u=da865e0deef887b6282125d03802d744b0e0cb40&v=4)
