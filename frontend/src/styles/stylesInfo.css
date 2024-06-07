@@ -1,0 +1,96 @@
+.reserva-info-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.reserva-info-content {
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #222;
+}
+
+p, ul {
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    text-align: left;
+    margin-left: 3em;
+}
+
+.btn-reservar {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-reservar:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos generales del carrusel */
+.carousel {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Estilos de los ítems del carrusel */
+.carousel-item {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    display: none;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.carousel-item.active {
+    display: block;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Estilos de las imágenes del carrusel */
+.imgCarrusel {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Estilos para la transición vertical */
+.carousel.slide .carousel-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+a.carousel-control-prev {
+    visibility: hidden;
+}
+
+a.carousel-control-next{
+    visibility: hidden;
+}
+
+.carousel-indicators{
+    visibility: hidden;
+}

@@ -3,6 +3,12 @@ nav {
     display: flex;
     justify-content: space-between; /* Alinea los elementos al principio y al final */
     align-items: center; /* Alinea verticalmente los elementos */
+    position: relative;
+    z-index: 1;
+}
+
+nav ul {
+    margin-right: 4em;
 }
 
 .navbar ul {
@@ -32,4 +38,13 @@ nav {
 .CorutuksLogo{
     width: 80px;
     height: auto;
+}
+
+a.emoticonoLogin {
+    font-size: x-large;
+    color: #333;
+}
+
+.contacto:first-child{
+    padding-right: 60px;
 }
