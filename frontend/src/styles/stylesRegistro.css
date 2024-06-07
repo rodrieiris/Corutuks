@@ -1,0 +1,79 @@
+.registro {
+    width: 100%;
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registro h2 {
+    margin-top: 1em;
+    text-align: center;
+}
+
+.registro form {
+    max-width: 520px;
+    width: 100%;
+    display: inline-block;
+}
+
+.registro.form-group {
+    margin-bottom: 15px;
+}
+
+.registro label {
+    display: block;
+    margin-bottom: 0.5em;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.separacion{
+    margin-top: 1.5em;
+}
+
+.registro input[type="text"],
+.registro input[type="email"],
+.registro input[type="password"],
+.registro input[type="tel"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: calc(100% - 40px);
+    margin: 0 10px;
+}
+
+.pass {
+    margin-top: 1.5em;
+}
+
+.registro button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+.registro button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.linkLogin {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+.linkLogin:hover {
+    color: #23527c;
+    text-decoration: underline;
+}

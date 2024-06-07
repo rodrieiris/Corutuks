@@ -1,4 +1,3 @@
-// src/paginas/cookies.js
 import React from 'react';
 import '../styles/stylesLegal.css';
 

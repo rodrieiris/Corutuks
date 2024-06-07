@@ -1,0 +1,109 @@
+.sobre-nosotros-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin-top: 2em;
+}
+
+.sobre-nosotros-container h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 0.5em;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.3em;
+}
+
+.sobre-nosotros-container p, .sobre-nosotros-container ul {
+    font-size: 1em;
+    color: #444;
+    line-height: 1.6;
+    margin: 0.8em 0;
+    padding: 0 1em;
+    text-align: justify;
+}
+
+.sobre-nosotros-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sobre-nosotros-container ul li {
+    background: #f0f0f0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.miembros-equipo {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.miembro {
+    text-align: center;
+    margin: 10px;
+}
+
+.miembro img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.miembro h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.miembro p {
+    font-size: 1em;
+    color: #777;
+}
+
+.servicios ul li {
+    margin: 10px 0;
+}
+
+.testimonios-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonio {
+    background: #f9f9f9;
+    border-left: 5px solid #007bff;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    padding-bottom: 40px; /* Espacio para las estrellas */
+}
+
+.testimonio p {
+    font-style: italic;
+    color: #555;
+}
+
+.testimonio h4 {
+    text-align: right;
+    color: #333;
+    margin-top: 10px;
+}
+
+.estrellas {
+    position: absolute;
+    bottom: 10px; /* Espacio para las estrellas */
+    left: 15px;
+    font-size: 1.2em;
+    color: #FFD700; /* Color dorado para las estrellas */
+}
