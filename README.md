@@ -43,7 +43,7 @@ Estas son las tecnologías utilizadas en el proyecto:
 
 ## :man_technologist: Personas Desarrolladoras del Proyecto
 ![Avatar](https://avatars.githubusercontent.com/u/145001101?s=400&u=da865e0deef887b6282125d03802d744b0e0cb40&v=4)
-- Rodrigo Eirís Padín (@reirisp)
+- Rodrigo Eirís Padín (@rodrieiris)
 
 ## :page_with_curl: Licencia
 Este proyecto está bajo la [Licencia MIT](https://github.com/reirisp/Corutuks/blob/main/LICENSE).
